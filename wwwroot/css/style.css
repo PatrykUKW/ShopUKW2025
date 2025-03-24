@@ -1,2 +1,10 @@
 ﻿body {
 }
+
+#footer a:hover {
+    color: gray;
+}
+
+td > a{
+    text-decoration: none;
+}
