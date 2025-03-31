@@ -6,6 +6,15 @@
             <h2> Model.Category.Name </h2>
 @(await Component.InvokeAsync("SideMenu", new { categoryName = Model.Category.Name }))
 </td>
+
+<td>
+    <h2>Obrazek</h2>
+    <img src="~/grafiki/@Model.Poster" height="400px"/>
+
+</td>
+
+
+
 <td>
 
 <ul>

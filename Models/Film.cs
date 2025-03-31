@@ -14,6 +14,8 @@ namespace ShopUKW2025.Models
         [StringLength(500)]
         public string Desc { get; set; }
 
+        public string Poster { get; set; }
+
         public decimal? Price { get; set; }
 
         public int CategoryId { get; set; }
