@@ -24,6 +24,8 @@
     <li>Cena: @Model.Price</li>
     <li>Opis: @Model.Desc</li>
 </ul>
+
+<button class="btn btn-primary" onclick="window.location.href='@Url.Action("EditFilm", "Films", new { id = Model.FilmId})'">Edytuj</button>
 </td>
 </tr>
 </table>
