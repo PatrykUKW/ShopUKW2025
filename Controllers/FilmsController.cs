@@ -10,6 +10,13 @@ namespace ShopUKW2025.Controllers
         FilmsContext db;
         IWebHostEnvironment webHost;
 
+
+        public CartController(FilmsContext db)
+        {
+            this.db = db;
+        }
+
+
         public FilmsController(FilmsContext db, IWebHostEnvironment webHost)
         {
             this.db = db;
