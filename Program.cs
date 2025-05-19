@@ -8,6 +8,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<FilmsContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDB")));
 
+builder.Services.AddSession();
+
 
 
 var app = builder.Build();
@@ -27,17 +29,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseSession();
+
 app.MapControllerRoute(
     name: "Details",
     pattern: "{action}/{filmId}",
     defaults: new { controller = "Films", action = "Details" }
     );
 
-app.MapControllerRoute(
-    name: "Categories",
-    pattern: "{categoryName}",
-    defaults: new { controller = "Films", action = "ProductList" }
-    );
+
 
 app.MapControllerRoute(
     name: "StaticSites", 
@@ -50,5 +50,11 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "Categories",
+    pattern: "{categoryName}",
+    defaults: new { controller = "Films", action = "ProductList" }
+    );
 
 app.Run();
