@@ -1,5 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+
+
+<div class="mb-3">
+	@Html.LabelFor(m => m.UserName, "Uzytkownik:", new { @class = "form-label" })
+	@Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @required = true })
+
+</div>

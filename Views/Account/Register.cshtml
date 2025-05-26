@@ -1,5 +1,50 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@using ShopUKW2025.Models.Users
+@model RegisterViewModel
+
+
+@using(Html.BeginForm("Register","Account", FormMethod.Post)){
+
+	<div class="mb-3">
+		@Html.LabelFor(m => m.FirstName, "Imie:", new { @class = "form-label" })
+		@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @required = true })
+
+	</div>
+	<div class="mb-3">
+		@Html.LabelFor(m => m.LastName, "Nazwsiko:", new { @class = "form-label" })
+		@Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @required = true })
+
+	</div>
+
+	<div class="mb-3">
+		@Html.LabelFor(m => m.Password, "Haslo:", new { @class = "form-label" })
+		@Html.PasswordFor(m => m.Password, new { @class = "form-control", @required = true })
+
+	</div>
+
+	<div class="mb-3">
+		@Html.LabelFor(m => m.ConfirmPassword, "Haslo:", new { @class = "form-label" })
+		@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @required = true })
+
+	</div>
+
+
+
+	<div class="mb-3">
+		@Html.LabelFor(m => m.Email, "Email:", new { @class = "form-label" })
+		@Html.TextBoxFor(m => m.Email, new { @class = "form-control", @required = true })
+
+	</div>
+	<div class="mb-3">
+		@Html.LabelFor(m => m.ConfirmEmail, "Email:", new { @class = "form-label" })
+		@Html.TextBoxFor(m => m.ConfirmEmail, new { @class = "form-control", @required = true })
+
+	</div>
+
+	<div class="mb-3">
+		@Html.LabelFor(m => m.UserName, "Uzytkownik:", new { @class = "form-label" })
+		@Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @required = true })
+
+	</div>
+
+	<button type ="submit">Zarejestruj</button>
 }

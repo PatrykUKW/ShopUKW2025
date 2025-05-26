@@ -33,23 +33,45 @@ namespace ShopUKW2025.Controllers
             return View();
         }
 
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+
         public async Task<IActionResult> Register()
         {
-            var user = await _userManager.FindByNameAsync("TestUser");
+            var user = await _userManager.FindByNameAsync(model.UserName);
 
             if (user == null)
             {
                 user = new AppUser()
-                { UserName = "TestUser", 
-                  Email = "testuser@ukw.edu.pl",
-                  FirstName = "Jan",
-                  LastName = "Kowalski"
+                { UserName = model.UserName,
+                  Email = model.Email,
+                  FirstName = model.FirstName,
+                  LastName = model.LastName,
                 };
 
-                var result = await _userManager.CreateAsync(user, "Test");
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if(result.Succeeded)
+                {
+                    ViewBag.Result = "Zarejestrowano użytkownika";
+
+                    await SignInManager.SignInAsync(user, false);
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                                       ViewBag.Result = "Nie udało się zarejestrować użytkownika";
+
+                }
             }
 
-            return View();
+            return View(model);
         }
 
         public async Task<IActionResult> Logout()
