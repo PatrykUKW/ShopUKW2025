@@ -29,11 +29,11 @@
             <li>
 				@if (User.Identity.IsAuthenticated)
                 {
-                    <a class="btn btn-danger" href="@Url.Action("Register", "Account")">Wyloguj</a>
+                    <a class="btn btn-danger" href="@Url.Action("Logout", "Account")">Wyloguj</a>
                 }
                 else
                 {
-                    <a class="btn btn-warning" href="@Url.Action("Register", "Account")">Zaloguj</a>
+                    <a class="btn btn-warning" href="@Url.Action("Login", "Account")">Zaloguj</a>
                 }
                 
             </li>

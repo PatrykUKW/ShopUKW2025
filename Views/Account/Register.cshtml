@@ -1,50 +1,58 @@
-﻿@using ShopUKW2025.Models.Users
-@model RegisterViewModel
+﻿@model RegisterViewModel
 
+<div> 
+    @ViewBag.result
+</div>
+<div>
+    @Html.ValidationSummary()
+</div>
 
-@using(Html.BeginForm("Register","Account", FormMethod.Post)){
+@using(Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <div class="mb-3">
+        @Html.LabelFor(m => m.FirstName, "Podaj imię:", new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+    </div>
 
-	<div class="mb-3">
-		@Html.LabelFor(m => m.FirstName, "Imie:", new { @class = "form-label" })
-		@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @required = true })
+    <div class="mb-3">
+        @Html.LabelFor(m => m.LastName, "Podaj nazwisko:", new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+    </div>
 
-	</div>
-	<div class="mb-3">
-		@Html.LabelFor(m => m.LastName, "Nazwsiko:", new { @class = "form-label" })
-		@Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @required = true })
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Email, "Podaj email:", new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @required = true })
+        <div>
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+    </div>
 
-	</div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.UserName, "Podaj login:", new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @required = true })
+    </div>
 
-	<div class="mb-3">
-		@Html.LabelFor(m => m.Password, "Haslo:", new { @class = "form-label" })
-		@Html.PasswordFor(m => m.Password, new { @class = "form-control", @required = true })
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Password, "Podaj hasło:", new { @class = "form-label" })
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @required = true })
+    </div>
 
-	</div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.ConfirmPassword, "Powtórz hasło:", new { @class = "form-label" })
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @required = true })
+        <div>
+            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        </div>
+    </div>
 
-	<div class="mb-3">
-		@Html.LabelFor(m => m.ConfirmPassword, "Haslo:", new { @class = "form-label" })
-		@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @required = true })
+    
 
-	</div>
+    <button type="submit"> Zarejestruj </button>
+}
 
-
-
-	<div class="mb-3">
-		@Html.LabelFor(m => m.Email, "Email:", new { @class = "form-label" })
-		@Html.TextBoxFor(m => m.Email, new { @class = "form-control", @required = true })
-
-	</div>
-	<div class="mb-3">
-		@Html.LabelFor(m => m.ConfirmEmail, "Email:", new { @class = "form-label" })
-		@Html.TextBoxFor(m => m.ConfirmEmail, new { @class = "form-control", @required = true })
-
-	</div>
-
-	<div class="mb-3">
-		@Html.LabelFor(m => m.UserName, "Uzytkownik:", new { @class = "form-label" })
-		@Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @required = true })
-
-	</div>
-
-	<button type ="submit">Zarejestruj</button>
+@section Scripts
+{
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
