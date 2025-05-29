@@ -11,10 +11,7 @@ namespace ShopUKW2025.Controllers
         IWebHostEnvironment webHost;
 
 
-        public CartController(FilmsContext db)
-        {
-            this.db = db;
-        }
+       
 
 
         public FilmsController(FilmsContext db, IWebHostEnvironment webHost)
@@ -81,6 +78,7 @@ namespace ShopUKW2025.Controllers
             return View(film);
         }
 
+        [HttpPost]
         public IActionResult Search(string tekst)
         {
             var filmy = from f in db.Films select f;

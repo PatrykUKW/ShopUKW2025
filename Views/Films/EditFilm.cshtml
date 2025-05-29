@@ -1,7 +1,7 @@
 ﻿@model Film
 
 @using (Html.BeginForm("EditFilm", "Films", FormMethod.Post))
-{}
+{
 @Html.HiddenFor(f => f.CategoryId)
 @Html.HiddenFor(f => f.Poster)
 @Html.HiddenFor(f => f.FilmId)
@@ -30,9 +30,10 @@
     <li>Cena: @Html.TextBoxFor(f => f.Price, new { @class = "form-control" })</li>
     <li>Opis: @Html.TextAreaFor(f => f.Desc, new { @class = "form-control" })</li>
 </ul>
+                <button class="btn btn-primary" type="submit"> Zapisz zmiany</button>
 </td>
 </tr>
 </table>
 
-<button class ="btn btn-primary" type="submit"> Zapisz zmiany</button>
+//<button class ="btn btn-primary" type="submit"> Zapisz zmiany</button>
 }

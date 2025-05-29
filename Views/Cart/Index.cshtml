@@ -4,7 +4,8 @@
 	{
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript">
-			$(".trash").click(function (){
+			$(".trash").click(function ()
+			{
 				let idCartItem = $(this).data('id');
 				
 				if(idCartItem != '')
@@ -32,9 +33,9 @@
 
 <table class="table">
 	<tr>
-		<td>Tytuł</td>
-		<td>Ilość</td>
-		<td>Cena jednostkowa</td>
+		<th>Tytuł</th>
+		<th>Ilość</th>
+		<th>Cena jednostkowa</th>
 	</tr>
 	@foreach (var cartItem in Model)
 	{
@@ -50,7 +51,7 @@
 	}
 </table>
 
-<div id=" = "total">
+<div>
 	<b>Do zapłaty: <span id="total">@ViewBag.Total </span>zł</b>
 
 </div>
